@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import br.usjt.ads20.mundomarvel.ListarPersonagemActivity;
+
 public class DetalhePersonagemActivity extends AppCompatActivity {
     private TextView nome;
     @Override
