@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ImageView
         android:id="@+id/poster_personagem"
         android:layout_width="50dp"
@@ -16,16 +21,41 @@
         android:layout_height="wrap_content"
         android:textColor="@color/red"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_toRightOf="@id/poster_personagem"
-        android:paddingLeft="5dp"/>
+        app:layout_constraintStart_toEndOf="@+id/poster_personagem"/>
+
     <TextView
-        android:id="@+id/detalhe_personagem"
+        android:id="@+id/detalhe1_personagem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/red"
+        android:textColor="@color/yellow"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_toRightOf="@id/poster_personagem"
-        android:layout_below="@id/nome_personagem"
-        android:paddingLeft="5dp"/>
+        app:layout_constraintStart_toEndOf="@+id/poster_personagem"
+        app:layout_constraintTop_toBottomOf="@id/nome_personagem"
+        tools:text="--------------gênero--------------" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/detalhe2_personagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/yellow"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toEndOf="@+id/poster_personagem"
+        app:layout_constraintTop_toBottomOf="@+id/detalhe1_personagem"
+        tools:text="--------------Popularidade--------------" />
+
+    <TextView
+        android:id="@+id/detalhe3_personagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/yellow"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toEndOf="@+id/poster_personagem"
+        app:layout_constraintTop_toBottomOf="@+id/detalhe2_personagem"
+        tools:text="--lançamento--" />
+</androidx.constraintlayout.widget.ConstraintLayout>

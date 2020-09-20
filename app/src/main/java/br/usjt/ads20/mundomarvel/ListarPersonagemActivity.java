@@ -18,7 +18,7 @@ import br.usjt.ads20.mundomarvel.model.Dados;
 import br.usjt.ads20.mundomarvel.model.Personagem;
 
 public class ListarPersonagemActivity extends AppCompatActivity {
-    public static String DESCRICAO = "br.usjt.ads20.mundomarvel.descricao";
+    public static String PERSONAGEM = "br.usjt.ads20.mundomarvel.personagem";
     Personagem[] lista;
     Activity atividade;
     @Override
@@ -39,7 +39,7 @@ public class ListarPersonagemActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent1 = new Intent(atividade, DetalhePersonagemActivity.class);
-                intent1.putExtra(DESCRICAO, lista[i].getTitulo());
+                intent1.putExtra(PERSONAGEM, lista[i]);
                 startActivity(intent1);
             }
         });

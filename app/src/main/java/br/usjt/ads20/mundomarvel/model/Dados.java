@@ -4,26 +4,32 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 public class Dados {
+
     public static Personagem[] buscaPersonagem(String chave){
-        ArrayList<Personagem> lista = criaPersonagems();
+        ArrayList<Personagem> lista = criaPersonagens();
+        ArrayList<Personagem> filtro;
+        Personagem[] personagens;
         if(chave == null || chave.length() == 0){
-            return lista.toArray(new Personagem[0]);
+            filtro = lista;
         } else {
-            ArrayList<Personagem> filtro = new ArrayList<>();
+            filtro = new ArrayList<>();
             for(Personagem personagem: lista){
                 String nome = personagem.getTitulo();
                 if(nome.toUpperCase().contains(chave.toUpperCase())){
                     filtro.add(personagem);
                 }
             }
-            return filtro.toArray(new Personagem[0]);
         }
+        personagens = filtro.toArray(new Personagem[0]);
+        Arrays.sort(personagens);
+        return personagens;
 
     }
-    private ArrayList<String> geraListaPersonagens(){
+    public static ArrayList<String> geraListaPersonagens(){
         ArrayList<String> lista = new ArrayList<>();
         lista.add("Motoqueiro Fantasma");
         lista.add("O Incrível Hulk");
@@ -47,7 +53,7 @@ public class Dados {
         return lista;
     }
 
-    public static ArrayList<Personagem> criaPersonagems() {
+    public static ArrayList<Personagem> criaPersonagens() {
         ArrayList<Personagem> lista = new ArrayList<>();
         Personagem personagem;
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
@@ -196,8 +202,6 @@ public class Dados {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-
         lista.add(personagem);
 
         return lista;

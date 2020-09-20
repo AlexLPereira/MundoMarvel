@@ -1,8 +1,9 @@
 package br.usjt.ads20.mundomarvel.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Personagem {
+public class Personagem implements Serializable, Comparable<Personagem> {
     private int id;
     private String titulo;
     private String descricao;
@@ -98,5 +99,10 @@ public class Personagem {
                 ", diretor='" + diretor + '\'' +
                 ", genero=" + genero +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Personagem personagem) {
+        return getTitulo().compareTo(personagem.getTitulo());
     }
 }

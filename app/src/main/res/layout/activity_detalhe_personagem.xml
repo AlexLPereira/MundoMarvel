@@ -1,19 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_grey"
-    tools:context=".DetalhePersonagemActivity">
+    android:layout_width="match_parent"
+    android:background="#1b1e21">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    android:background="#1b1e21">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/lbl_lancamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/lbl_lancamento"
         android:textColor="@color/red"
-        android:id="@+id/personagem_selecionado"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/backDropView" />
+
+    <TextView
+        android:id="@+id/txt_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/busca_personagem"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/red"
         android:textStyle="bold"
-        android:textSize="40sp"/>
-</LinearLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/backDropView"
+            android:layout_width="410dp"
+            android:layout_height="230dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_titulo"
+            app:srcCompat="@drawable/black_widow_backdrop" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <TextView
+        android:id="@+id/lbl_popularidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/lbl_popularidade"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_lancamento" />
+
+    <TextView
+        android:id="@+id/txt_popularidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@+id/lbl_popularidade"
+        app:layout_constraintTop_toTopOf="@+id/lbl_popularidade"
+        tools:text="10,0" />
+
+    <TextView
+        android:id="@+id/txt_lancamento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@+id/lbl_lancamento"
+        app:layout_constraintTop_toTopOf="@+id/lbl_lancamento"
+        tools:text="99/99/9999" />
+
+    <TextView
+        android:id="@+id/txt_genero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/lbl_genero"
+        app:layout_constraintTop_toTopOf="@+id/lbl_genero"
+        tools:text="Genero"
+        android:textColor="@color/red" />
+
+    <TextView
+        android:id="@+id/lbl_genero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/lbl_genero"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_popularidade" />
+
+    <TextView
+        android:id="@+id/txt_descricao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textColor="@color/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/lbl_genero"
+        tools:text="Breve descrição do Personagem" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
