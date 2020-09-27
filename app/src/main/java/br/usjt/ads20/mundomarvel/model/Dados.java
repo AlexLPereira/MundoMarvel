@@ -8,18 +8,23 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class Dados {
+    private static ArrayList<Personagem> personagens;
+    public static void setPersonagens(ArrayList<Personagem> pPersonagens) {
+        personagens = pPersonagens;
+    }
 
-    public static Personagem[] buscaPersonagem(String chave){
-        ArrayList<Personagem> lista = criaPersonagens();
-        ArrayList<Personagem> filtro;
+
+    public static Personagem[] buscaPersonagem(String chave) {
+        ArrayList<Personagem> lista = personagens;
+        ArrayList<Personagem>  filtro;
         Personagem[] personagens;
-        if(chave == null || chave.length() == 0){
+        if (chave == null || chave.length() == 0) {
             filtro = lista;
         } else {
             filtro = new ArrayList<>();
-            for(Personagem personagem: lista){
+            for (Personagem personagem : lista) {
                 String nome = personagem.getTitulo();
-                if(nome.toUpperCase().contains(chave.toUpperCase())){
+                if (nome.toUpperCase().contains(chave.toUpperCase())) {
                     filtro.add(personagem);
                 }
             }
@@ -29,7 +34,8 @@ public class Dados {
         return personagens;
 
     }
-    public static ArrayList<String> geraListaPersonagens(){
+
+    public static ArrayList<String> geraListaPersonagens() {
         ArrayList<String> lista = new ArrayList<>();
         lista.add("Motoqueiro Fantasma");
         lista.add("O Incrível Hulk");
@@ -181,7 +187,7 @@ public class Dados {
         personagem.setGenero(new Genero(1, "Herói"));
         personagem.setTitulo("Visão");
         personagem.setDescricao("O Visão (The Vision em inglês) é um super-herói fictício que aparece nos quadrinhos americanos publicados pela Marvel Comics." +
-                                "Ele é um androide e um membro dos Vingadores que apareceu pela primeira vez em The Avengers #57. Ele é vagamente baseado no personagem da Timely Comics (primeiro nome da Marvel) com o mesmo nome.");
+                "Ele é um androide e um membro dos Vingadores que apareceu pela primeira vez em The Avengers #57. Ele é vagamente baseado no personagem da Timely Comics (primeiro nome da Marvel) com o mesmo nome.");
         try {
             personagem.setDataLancamento((Date) formatter.parse("1968-10-01"));
         } catch (ParseException e) {

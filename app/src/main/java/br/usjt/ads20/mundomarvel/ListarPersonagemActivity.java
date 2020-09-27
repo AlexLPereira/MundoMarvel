@@ -17,8 +17,9 @@ import java.util.ArrayList;
 import br.usjt.ads20.mundomarvel.model.Dados;
 import br.usjt.ads20.mundomarvel.model.Personagem;
 
+
 public class ListarPersonagemActivity extends AppCompatActivity {
-    public static String PERSONAGEM = "br.usjt.ads20.mundomarvel.personagem";
+        public static String PERSONAGEM = "br.usjt.ads20.mundomarvel.personagem";
     Personagem[] lista;
     Activity atividade;
     @Override
@@ -28,7 +29,11 @@ public class ListarPersonagemActivity extends AppCompatActivity {
         atividade = this;
         final Intent intent = getIntent();
         String chave = intent.getStringExtra(MainActivity.NOME);
+        ArrayList<Personagem> personagens = (ArrayList<Personagem>) intent.getSerializableExtra(MainActivity.PERSONAGENS);
+        Dados.setPersonagens(personagens);
+
         lista = Dados.buscaPersonagem(chave);
+
         BaseAdapter adapter = new PersonagemAdapter(this, lista);
 
 
@@ -45,7 +50,5 @@ public class ListarPersonagemActivity extends AppCompatActivity {
         });
 
     }
-
-
 
 }
