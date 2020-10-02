@@ -36,13 +36,12 @@ public class PersonagemNetwork {
                 JSONObject item = (JSONObject) lista.get(i);
 
                 personagem.setId(item.getInt("id"));
-                //personagem.setTitulo(item.getString("name")); ****NOME DO PERSONAGEM API MARVEL
-                personagem.setTitulo(item.getString("title"));
-                //personagem.setDescricao(item.getString("description")); ***** BREVE DESCRIÇÃO DO PERSONAGEM API MARVEL
+                personagem.setTitulo(item.getString("name"));
+                personagem.setDescricao(item.getString("description"));
 
-               /*personagem.setPosterPath(item.getString("path"));
-                try {
-                    personagem.setDataLancamento(formatter.parse(String.valueOf(item.getInt("data"))));     ****CAMINHO DE BUSCA PARA O POSTER PATH API MARVEL
+               personagem.setPosterPath(item.getString("path"));
+                /*try {
+                    personagem.setDataLancamento(formatter.parse(String.valueOf(item.getInt("data"))));
                     } catch (ParseException e) {
                     e.printStackTrace();
                     }*/

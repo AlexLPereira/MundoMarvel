@@ -20,8 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText txtNome;
     public static final String NOME = "br.usjt.ads20.mundomarvel";
     public static final String PERSONAGENS = "br.usjt.ads20.mundomarvel";
-    //private String url = "https://gateway.marvel.com:443/v1/public/characters?apikey=";
-    private String url = "https://api.themoviedb.org/3/movie/popular?language=pt-BR&page=1&api_key=";
+    private String url = "https://gateway.marvel.com:443/v1/public/characters?apikey=";
     private Context context;
 
 
@@ -60,19 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    //API THE MOVIE DB
-    private String getKey(){
-        return "INSERIR CHAVE";
-    }
-
 
 
     //API MARVEL
-    /*private String getKey(){
-        return "INSERIR CHAVE";
-    }*/
-
-
+    private String getKey(){
+        return "insira sua chave aqui";
+    }
 }
-
-//RESOLVER GET
