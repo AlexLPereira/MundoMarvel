@@ -13,21 +13,27 @@ import android.widget.TextView;
 import java.util.Hashtable;
 
 import br.usjt.ads20.mundomarvel.model.Personagem;
+import br.usjt.ads20.mundomarvel.model.Poster;
 
 public class PersonagemAdapter extends BaseAdapter implements SectionIndexer {
      Context context;
      Personagem[] personagem;
      Object[] sectionHeaders;
-    Hashtable<Integer, Integer> positionForSectionMap;
+     Poster[] imagens;
+     Hashtable<Integer, Integer> positionForSectionMap;
     Hashtable<Integer, Integer> sectionForPositionMap;
 
-    public PersonagemAdapter(Context context, Personagem[] personagem) {
+    public PersonagemAdapter(Context context, Personagem[] personagem/*, Poster[] imagens*/) {
         this.context = context;
         this.personagem = personagem;
+        this.imagens = imagens;
         sectionHeaders = SectionIndexBuilder.buildSectionHeaders(personagem);
         positionForSectionMap = SectionIndexBuilder.buildPositionForSectionMap(personagem);
         sectionForPositionMap = SectionIndexBuilder.buildSectionForPositionMap(personagem);
 
+    }
+
+    public PersonagemAdapter(ListarPersonagemActivity context, Personagem[] lista/*, Poster[] posters*/) {
     }
 
     @Override
@@ -62,21 +68,11 @@ public class PersonagemAdapter extends BaseAdapter implements SectionIndexer {
             TextView Detalhe3Personagem = (TextView) view.findViewById(R.id.detalhe3_personagem);
             view.setTag(new ViewHolder(posterpersonagem, nomepersonagem, Detalhe1Personagem, Detalhe2Personagem, Detalhe3Personagem));
         }
-        Drawable drawable = Util.getDrawable(context,
-                personagem[i].getPosterPath().substring(0,
-                        personagem[i].getPosterPath().length()-4).toLowerCase());
+
         ViewHolder viewHolder = (ViewHolder)view.getTag();
-        viewHolder.getposterPersonagem().setImageDrawable(drawable);
+        viewHolder.getposterPersonagem().setImageBitmap(imagens[i].getPoster());
         viewHolder.getnomePersonagem().setText(personagem[i].getTitulo());
         //Locale locale = new Locale("pt", "BR");
-        String lbl_gen = context.getResources().getString(R.string.lbl_genero);
-        String lbl_lanc = context.getResources().getString(R.string.lbl_lancamento);
-        String lbl_pop = context.getResources().getString(R.string.lbl_popularidade);
-        viewHolder.getDetalhe1Personagem().setText(String.format("%s: %s", lbl_gen, personagem[i].getGenero().getNome()));
-        viewHolder.getDetalhe2Personagem().setText(String.format("%s: %td-%tb-%ty", lbl_lanc,
-                personagem[i].getDataLancamento(), personagem[i].getDataLancamento(),
-                personagem[i].getDataLancamento()));
-        viewHolder.getDetalhe3Personagem().setText(String.format("%s: %.1f", lbl_pop, personagem[i].getPopularidade()));
 
 
 

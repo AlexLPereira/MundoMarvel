@@ -16,11 +16,14 @@ import java.util.ArrayList;
 
 import br.usjt.ads20.mundomarvel.model.Dados;
 import br.usjt.ads20.mundomarvel.model.Personagem;
+import br.usjt.ads20.mundomarvel.model.Poster;
+
 
 
 public class ListarPersonagemActivity extends AppCompatActivity {
         public static String PERSONAGEM = "br.usjt.ads20.mundomarvel.personagem";
     Personagem[] lista;
+    Poster[] posters;
     Activity atividade;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +36,9 @@ public class ListarPersonagemActivity extends AppCompatActivity {
         Dados.setPersonagens(personagens);
 
         lista = Dados.buscaPersonagem(chave);
+        posters = Dados.buscaPosters(chave);
 
-        BaseAdapter adapter = new PersonagemAdapter(this, lista);
+        BaseAdapter adapter = new PersonagemAdapter(this, lista/*, posters*/);
 
 
         ListView listView = (ListView) findViewById(R.id.listview);
@@ -47,6 +51,7 @@ public class ListarPersonagemActivity extends AppCompatActivity {
                 intent1.putExtra(PERSONAGEM, lista[i]);
                 startActivity(intent1);
             }
+
         });
 
     }
