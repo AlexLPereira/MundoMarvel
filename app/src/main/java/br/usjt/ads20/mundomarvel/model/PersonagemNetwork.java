@@ -27,7 +27,6 @@ import okhttp3.Response;
 public class PersonagemNetwork {
     public static ArrayList<Personagem> buscarPersonagens(String url) throws IOException {
         ArrayList<Personagem> personagens = new ArrayList<>();
-        //SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder().url(url).build();
@@ -44,19 +43,11 @@ public class PersonagemNetwork {
                 personagem.setId(item.getInt("id"));
                 personagem.setTitulo(item.getString("name"));
                 personagem.setDescricao(item.getString("description"));
-
-               personagem.setPosterPath(item.getString("path"));
-                /*try {
-                    personagem.setDataLancamento(formatter.parse(String.valueOf(item.getInt("data"))));
-                    } catch (ParseException e) {
-                    e.printStackTrace();
-                    }*/
+                personagem.setPosterPath(item.getString("thumbnail"));
+                personagem.setBackdropPath(item.getString("thumbnail"));
 
 
-                //VERIFICAR SE HÁ GENEROS (HERÓIS, VILÕES, ANTI-HERÓIS) NA API
-
-
-                }
+                        }
             }
         catch (JSONException e) {
             e.printStackTrace();
@@ -72,7 +63,6 @@ public class PersonagemNetwork {
         Bitmap img = null;
 
         Request request = new Request.Builder().url(url).build();
-
         Response response = client.newCall(request).execute();
 
         InputStream is = response.body().byteStream();

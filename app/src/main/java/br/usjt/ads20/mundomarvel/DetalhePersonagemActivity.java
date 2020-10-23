@@ -18,7 +18,7 @@ import br.usjt.ads20.mundomarvel.model.Personagem;
 import br.usjt.ads20.mundomarvel.model.PersonagemNetwork;
 
 public class DetalhePersonagemActivity extends AppCompatActivity {
-    private TextView nomeDoPersonagem, genero, lancamento, popularidade, descricao;
+    private TextView nomeDoPersonagem, descricao;
     private ImageView backdrop;
     private ProgressBar progressBar;
     private Personagem personagem;
@@ -31,9 +31,6 @@ public class DetalhePersonagemActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_detalhe_personagem);
         nomeDoPersonagem = (TextView) findViewById(R.id.txt_titulo);
-        genero = (TextView) findViewById(R.id.txt_genero);
-        lancamento = (TextView) findViewById(R.id.txt_lancamento);
-        popularidade = (TextView) findViewById(R.id.txt_popularidade);
         descricao = (TextView) findViewById(R.id.txt_descricao);
         backdrop = (ImageView) findViewById(R.id.poster_personagem);
         Intent intent = getIntent();

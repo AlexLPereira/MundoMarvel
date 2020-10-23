@@ -38,7 +38,7 @@ public class ListarPersonagemActivity extends AppCompatActivity {
         lista = Dados.buscaPersonagem(chave);
         posters = Dados.buscaPosters(chave);
 
-        BaseAdapter adapter = new PersonagemAdapter(this, lista/*, posters*/);
+        BaseAdapter adapter = new PersonagemAdapter(this, lista, posters);
 
 
         ListView listView = (ListView) findViewById(R.id.listview);

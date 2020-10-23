@@ -1,4 +1,4 @@
-package br.usjt.ads20.mundomarvel.model;
+/*package br.usjt.ads20.mundomarvel.model;
 
 import java.io.Serializable;
 
@@ -35,3 +35,4 @@ public class Genero implements Serializable {
                 '}';
     }
 }
+*/

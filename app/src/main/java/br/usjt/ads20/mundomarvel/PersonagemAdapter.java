@@ -23,7 +23,7 @@ public class PersonagemAdapter extends BaseAdapter implements SectionIndexer {
      Hashtable<Integer, Integer> positionForSectionMap;
     Hashtable<Integer, Integer> sectionForPositionMap;
 
-    public PersonagemAdapter(Context context, Personagem[] personagem/*, Poster[] imagens*/) {
+    public PersonagemAdapter(Context context, Personagem[] personagem, Poster[] imagens) {
         this.context = context;
         this.personagem = personagem;
         this.imagens = imagens;
@@ -31,9 +31,6 @@ public class PersonagemAdapter extends BaseAdapter implements SectionIndexer {
         positionForSectionMap = SectionIndexBuilder.buildPositionForSectionMap(personagem);
         sectionForPositionMap = SectionIndexBuilder.buildSectionForPositionMap(personagem);
 
-    }
-
-    public PersonagemAdapter(ListarPersonagemActivity context, Personagem[] lista/*, Poster[] posters*/) {
     }
 
     @Override
@@ -73,8 +70,6 @@ public class PersonagemAdapter extends BaseAdapter implements SectionIndexer {
         viewHolder.getposterPersonagem().setImageBitmap(imagens[i].getPoster());
         viewHolder.getnomePersonagem().setText(personagem[i].getTitulo());
         //Locale locale = new Locale("pt", "BR");
-
-
 
 
         return view;

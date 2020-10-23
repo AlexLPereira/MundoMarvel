@@ -13,7 +13,6 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import br.usjt.ads20.mundomarvel.model.Dados;
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String NOME = "br.usjt.ads20.mundomarvel";
     public static final String PERSONAGENS = "br.usjt.ads20.mundomarvel";
     private String url = "https://gateway.marvel.com:443/v1/public/characters?apikey=";
-    private String imgUrl = "http://i.annihil.us/u/prod/marvel/i/mg/c";  //VERIFICAR DOWNLOAD DAS TUMBS
+    private String imgUrl ="http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784";
     private Context context;
 
 
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 personagens = PersonagemNetwork.buscarPersonagens(strings[0]);
                 for (Personagem personagem: personagens) {
                     String poster = personagem.getPosterPath();
-                    Bitmap img = PersonagemNetwork.buscarImagens(imgUrl + poster);
+                    Bitmap img = PersonagemNetwork.buscarImagens(imgUrl+poster);
                     Poster p = new Poster();
                     p.setId(personagem.getId());
                     p.setTitulo(personagem.getTitulo());
@@ -94,4 +93,5 @@ public class MainActivity extends AppCompatActivity {
     private String getKey(){
         return "2d1d7950e765e65154be65485cc187f2&hash=79b7cca1543741b195b66cf58e18fbf4&ts=1";
     }
+
 }
