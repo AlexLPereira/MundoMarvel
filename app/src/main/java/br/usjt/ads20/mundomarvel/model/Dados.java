@@ -47,28 +47,25 @@ public class Dados {
 
     }
 
-    public static Poster[] buscaPosters(String chave) {
+    public static Poster[] buscaPosters (String chave){
         ArrayList<Poster> lista = imagens;
         ArrayList<Poster> filtro;
         Poster[] posters;
-        if (chave == null || chave.length() == 0){
+        if (chave == null || chave.length() == 0) {
             filtro = lista;
         } else {
             filtro = new ArrayList<>();
-            for (Poster poster: lista){
+            for (Poster poster : lista) {
                 String nome = poster.getTitulo();
-                if (nome.toUpperCase().contains(chave.toUpperCase())){
+                if (nome.toUpperCase().contains(chave.toUpperCase())) {
                     filtro.add(poster);
                 }
-
             }
         }
         posters = filtro.toArray(new Poster[0]);
         Arrays.sort(posters);
-
-
         return posters;
+
+
     }
-
-
 }
