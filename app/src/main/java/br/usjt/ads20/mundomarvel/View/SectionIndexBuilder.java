@@ -1,4 +1,4 @@
-package br.usjt.ads20.mundomarvel;
+package br.usjt.ads20.mundomarvel.View;
 
 import java.util.ArrayList;
 import java.util.Hashtable;

@@ -1,4 +1,4 @@
-package br.usjt.ads20.mundomarvel;
+package br.usjt.ads20.mundomarvel.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,13 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 
+import br.usjt.ads20.mundomarvel.R;
 import br.usjt.ads20.mundomarvel.model.Dados;
 import br.usjt.ads20.mundomarvel.model.Personagem;
 import br.usjt.ads20.mundomarvel.model.Poster;

@@ -1,4 +1,4 @@
-package br.usjt.ads20.mundomarvel;
+package br.usjt.ads20.mundomarvel.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,12 +15,15 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import br.usjt.ads20.mundomarvel.Presenter.MainPresenter;
+import br.usjt.ads20.mundomarvel.R;
 import br.usjt.ads20.mundomarvel.model.Dados;
 import br.usjt.ads20.mundomarvel.model.Personagem;
 import br.usjt.ads20.mundomarvel.model.PersonagemNetwork;
 import br.usjt.ads20.mundomarvel.model.Poster;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainView {
+    MainPresenter presenter = new MainPresenter(this);
     private EditText txtNome;
     private ProgressBar progressBar;
     public static final String NOME = "br.usjt.ads20.mundomarvel";
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         txtNome = (EditText)findViewById(R.id.busca_fila);
         progressBar = (ProgressBar)findViewById(R.id.progressBarMain);
         context = this;
+        presenter.onCreate();
     }
 
     public void BuscarPersonagem(View view) {
@@ -51,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
            toast.show();
        }
        }
+
+    @Override
+    public void configurarView(String id) {
+
+    }
 
     private class DownloadJsonPersonagens extends AsyncTask<String, Void, ArrayList<Personagem>>{
 
@@ -94,4 +103,40 @@ public class MainActivity extends AppCompatActivity {
         return "2d1d7950e765e65154be65485cc187f2&hash=79b7cca1543741b195b66cf58e18fbf4&ts=1";
     }
 
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        presenter.onStart();
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        presenter.onRestart();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        presenter.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        presenter.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        presenter.onDestroy();
+    }
 }

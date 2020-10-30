@@ -1,4 +1,4 @@
-package br.usjt.ads20.mundomarvel;
+package br.usjt.ads20.mundomarvel.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
+import br.usjt.ads20.mundomarvel.R;
 import br.usjt.ads20.mundomarvel.model.Personagem;
 import br.usjt.ads20.mundomarvel.model.PersonagemNetwork;
 

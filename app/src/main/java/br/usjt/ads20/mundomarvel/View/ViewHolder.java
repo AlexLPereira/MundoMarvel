@@ -1,4 +1,4 @@
-package br.usjt.ads20.mundomarvel;
+package br.usjt.ads20.mundomarvel.View;
 
 import android.widget.ImageView;
 import android.widget.TextView;
